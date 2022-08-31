@@ -34,21 +34,31 @@ console.log(supplyChanges);
 //    - if the value is 0, log 'No Change.'
 //    - if the value is negative, format the log as 'Removed x parts.' 
 console.log('6. Showing supplyChanges...');
-
-for(supply of supplyChanges) {i = supply;
-    if(i > 0) console.log('Added', i, 'parts');
-    if(i === 0) console.log('No Change.');
-    else if (i < 0) console.log('Removed',i, 'parts')
+for(i = 0; i < supplyChanges.length; i++ ) {
+    if(supplyChanges[i] > 0) console.log('Added', supplyChanges[i], 'parts');
+    if(supplyChanges[i] === 0) console.log('No Change.');
+    else if (supplyChanges[i] < 0 ) console.log('Removed',supplyChanges[i]*-1 , 'parts')  
 }
+
 
 // STRETCH GOALS
 console.log('---  Stretch Goals  ---');
 // 7. Rewrite the `for` loop from #6 as a `for of` loop. 
 console.log('7. Showing supplyChanges with "for of" loop');
+for(supply of supplyChanges) {
+    if(supply > 0) console.log('Added', supply, 'parts');
+    if(supply === 0) console.log('No Change.');
+    else if (supply < 0) console.log('Removed',supply*-1, 'parts')
+}
 
 // 8. Write a loop to determine the total number of parts available by
 //    adding up all the numbers in the 'supplyChanges' array.
 console.log('8. Total supplies available is:');
+let total = 0;
+for(i = 0; i < supplyChanges.length; i++){
+    total += supplyChanges[i];          
+}
+console.log(total);
 
 // 9. We have a large stash of parts in our warehouse that we 
 //    need to box up and get ready for shipment. 
@@ -57,3 +67,11 @@ console.log('8. Total supplies available is:');
 //    no more boxes can be filled.
 //    Then log how many boxes were filled, and how many parts are left over.
 console.log('9. Filling boxes with a "while" loop');
+const boxAllowance = 7
+let parts = 572
+let box = 0
+
+while(parts > 7){
+    parts -=7 ; box +=1 ; 
+    } 
+    console.log('boxes:' , box, '. parts leftover:' , parts, '.');
